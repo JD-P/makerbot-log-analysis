@@ -1,6 +1,7 @@
 import os
 import os.path
 import sys
+import time
 import json
 import csv
 import argparse
@@ -32,7 +33,10 @@ def conv_dir_to_csv(path):
     for folder in foldernames:
         logpath = os.path.join(path, folder, "user_stats.json")
         row = conv_stats_into_row(logpath)
+        datetime_ = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(os.path.getctime(logpath)))
+        row[0].insert(0, datetime_)
         if row_count == 0:
+            row[1].insert(0, "datetime")
             rows.append(row[1])
             rows.append(row[0])
             row_count += 2
