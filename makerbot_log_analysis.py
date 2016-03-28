@@ -72,7 +72,9 @@ CSV file usable by excel."""
             write_csv_file(rows, sys.stdout)
     elif os.path.isfile(arguments.path):
         rows = []
-        rows.append(conv_stats_into_row(logpath))
+        row = conv_stats_into_row(arguments.path)
+        rows.append(row[1])
+        rows.append(row[0])
         if arguments.output:
             write_csv_file(rows, arguments.output)
         else:
