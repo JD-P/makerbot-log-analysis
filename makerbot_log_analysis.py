@@ -77,6 +77,10 @@ CSV file usable by excel."""
     elif os.path.isfile(arguments.path):
         rows = []
         row = conv_stats_into_row(arguments.path)
+        row[1].insert(0, "datetime")
+        datetime_ = time.strftime("%Y-%m-%dT%H:%M:%SZ",
+                                  time.gmtime(os.path.getctime(arguments.path)))
+        row[0].insert(0, datetime_)
         rows.append(row[1])
         rows.append(row[0])
         if arguments.output:
