@@ -58,9 +58,7 @@ def write_csv_file(rows, outpath):
     return True
 
 if __name__ == '__main__':
-    description = """This tool converts Makerbot log files into CSV format.
-If given the --csv option the tool converts the directories in [path] into a single
-CSV file usable by excel.""" 
+    description = """This tool converts Makerbot log files into CSV format.""" 
     parser = argparse.ArgumentParser()
     parser.add_argument("path", help="file or directory path to the extruder files")
     parser.add_argument("-o", "--output",
