@@ -63,7 +63,6 @@ if __name__ == '__main__':
     parser.add_argument("path", help="file or directory path to the extruder files")
     parser.add_argument("-o", "--output",
                         help="Filepath to the csv output file, prints to STDOUT otherwise.") 
-    parser.add_argument("--csv", help="Convert the path to a CSV file usable by Excel.")
     arguments = parser.parse_args()
 
     if os.path.isdir(arguments.path):
